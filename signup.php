@@ -1,3 +1,23 @@
+<?php
+include('./database/db.php');
+if(isset($_POST['submit'])){
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $password = md5($_POST['password']);
+  $gender = $_POST['gender'];
+  $address = $_POST['address'];
+  
+  $sql = "INSERT INTO users (full_name, email, password, gender, address) VALUES ('".$name."', '".$email."', '".$password."', '".$gender."', '".$address."')";
+  
+  if(mysqli_query($connect, $sql)){
+    echo "<script>alert('Đăng ký thành công')</script>";
+  } else {
+    echo "<script>alert('Đăng ký thất bại')</script>";
+  }
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +69,15 @@
                     <input type="email" required name="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                   </div>
                   <div class="mb-3">
-                    <input type="password" required name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                    <input type="password" required name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" id="password">
+                    <input type="checkbox" onclick="showPassword()">Hiển thị mật khẩu
+                  </div>
+                  <div class="mb-3">
+                    <input type="radio" name="gender" id="0" value="0">Nữ
+                    <input type="radio" name="gender" id="0" value="1">Nam
+                  </div>
+                  <div class="mb-3">
+                    <input type="address" required name="address" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="address-addon">
                   </div>
                   <div class="form-check form-check-info text-left">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
@@ -141,6 +169,16 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+  <script>
+    function showPassword() {
+      var passwordInput = document.getElementById('password');
+      if(passwordInput.type == 'password'){
+        passwordInput.type = 'text';
+      } else {
+        passwordInput.type = 'password';
+      }
+    }
+  </script>
 </body>
 
 </html>
