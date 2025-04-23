@@ -88,7 +88,7 @@ if(isset($_POST['submit'])){
                   <div class="text-center">
                     <button type="submit" name="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
                   </div>
-                  <p class="text-sm mt-3 mb-0">Already have an account? <a href="http://localhost/MiniStore/app/login.php" class="text-dark font-weight-bolder">Sign in</a></p>
+                  <p class="text-sm mt-3 mb-0">Already have an account? <a href="login.php" class="text-dark font-weight-bolder">Sign in</a></p>
                 </form>
               </div>
             </div>
@@ -168,8 +168,10 @@ if(isset($_POST['submit'])){
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="./assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+  <script src="./asse
+  ts/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
   <script>
+     
     function showPassword() {
       var passwordInput = document.getElementById('password');
       if(passwordInput.type == 'password'){
@@ -178,6 +180,7 @@ if(isset($_POST['submit'])){
         passwordInput.type = 'password';
       }
     }
+    
   </script>
 </body>
 

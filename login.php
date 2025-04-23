@@ -1,3 +1,22 @@
+
+<?php 
+include('./database/db.php');
+if(isset($_POST['submit'])){
+  $email = $_POST['email'];
+  $password = md5($_POST['password']);
+
+  // Tim kiem du lieu
+  $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+  $query = mysqli_query($connect, $sql);
+
+  if(mysqli_num_rows($query) == 0){ // Dang nhap that bai
+    echo "<script>alert('Đăng nhập thất bại')</script>";
+  } else {
+    echo "<script>alert('Đăng nhập thành công')</script>";
+    header("Location: http://localhost/webtm/");
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +76,7 @@
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">
                     Don't have an account?
-                    <a href="http://localhost/MiniStore/app/signup.php" class="text-info text-gradient font-weight-bold">Sign up</a>
+                    <a href="signup.php" class="text-info text-gradient font-weight-bold">Sign up</a>
                   </p>
                 </div>
               </div>
