@@ -11,9 +11,9 @@ if(isset($_POST['submit'])){
 
   if(mysqli_num_rows($query) == 0){ // Dang nhap that bai
     echo "<script>alert('Đăng nhập thất bại')</script>";
-  } else {
+  } else {    
+    header("Location: http://localhost/webtm/admin/dashboard.php");
     echo "<script>alert('Đăng nhập thành công')</script>";
-    header("Location: http://localhost/webtm/");
   }
 }
 ?>
